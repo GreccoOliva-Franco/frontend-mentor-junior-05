@@ -63,15 +63,12 @@ export default function ContactForm() {
       onSubmit={submit}
       className={cn(
         "grid grid-cols-1 w-full gap-6 p-8",
-        'has-[aria-invalid="true"]:border-error',
+        '*:has-[aria-invalid="true"]:border-error',
         "md:grid-cols-2"
       )}
     >
       <h1
-        className={cn(
-          "text-3xl text-primary font-bold tracking-tighter",
-          "md:col-span-2"
-        )}
+        className={cn("text-3xl font-bold tracking-tighter", "md:col-span-2")}
       >
         Contact Us
       </h1>
@@ -178,10 +175,12 @@ export default function ContactForm() {
           {...register("message")}
           aria-required="true"
           aria-describedby="message-label"
+          aria-invalid={Boolean(errors?.message)}
           // aria-invalid="true"
           className={cn(
             "p-2 border outline-none border-Gray-500 rounded-lg",
-            "hover:cursor-pointer hover:border-primary focus:border-primary focus:bg-focus-background"
+            "hover:cursor-pointer hover:border-primary focus:border-primary focus:bg-focus-background",
+            "aria-[invalid=true]:border-error aria-[invalid=true]:focus:bg-inherit"
           )}
         />
         {errors?.message && (

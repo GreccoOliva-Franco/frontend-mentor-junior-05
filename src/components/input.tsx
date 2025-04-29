@@ -37,7 +37,8 @@ export function Input({
         aria-invalid={hasError ? "true" : "false"}
         className={cn(
           "p-2 outline-none border border-Gray-500 rounded-lg",
-          "hover:cursor-pointer hover:border-primary focus:border-primary focus:bg-focus-background"
+          "hover:cursor-pointer hover:border-primary focus:border-primary focus:bg-focus-background",
+          "aria-[invalid=true]:border-error aria-[invalid=true]:focus:bg-inherit"
         )}
       />
       {hasError && <p className="text-sm text-error">{errorMessage}</p>}
