@@ -11,11 +11,6 @@ enum Query {
   SUPPORT = "support",
 }
 
-enum Policy {
-  ACCEPTED = "accepted",
-  REJECTED = "rejected",
-}
-
 const schema = z
   .object({
     firstName: z.string().min(1),
